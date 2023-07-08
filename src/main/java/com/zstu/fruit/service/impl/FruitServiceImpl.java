@@ -3,6 +3,7 @@ package com.zstu.fruit.service.impl;
 import com.zstu.fruit.dao.FruitDAO;
 import com.zstu.fruit.pojo.Fruit;
 import com.zstu.fruit.service.FruitService;
+import com.zstu.myssm.basedao.ConnUtil;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class FruitServiceImpl implements FruitService {
 
     @Override
     public List<Fruit> getFruitList(String keyword, Integer pageNum) {
+        System.out.println("getFruitList -> " + ConnUtil.getConn());
         return fruitDAO.getFruitList(keyword, pageNum);
     }
 
@@ -41,6 +43,7 @@ public class FruitServiceImpl implements FruitService {
 
     @Override
     public Integer getPageCount(String keyword) {
+        System.out.println("getFruitList -> " + ConnUtil.getConn());
         int count = fruitDAO.getFruitCount(keyword);
         int pageCount = (count+5-1)/5 ;
         return pageCount;

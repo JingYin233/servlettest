@@ -102,10 +102,9 @@ public class DispatcherServlet extends ViewBaseServlet{
                 throw new RuntimeException("operate值非法!");
             }
             */
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
+            throw new DispatcherServletException("DispatcherServlet出错了...");
         }
     }
 }
